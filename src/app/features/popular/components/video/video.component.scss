@@ -1,0 +1,122 @@
+@import 'src/styles/material-theme';
+
+:host {
+  display: block;
+  min-width: 200px;
+  min-height: 200px;
+  width: 400px;
+
+  flex: 1 1 auto;
+  margin: 1px;
+
+  cursor: pointer;
+}
+
+.mat-card {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  will-change: transform;
+
+  & > mat-icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+
+    font-size: 3rem;
+    transform: translate(-1.5rem, -1.5rem);
+  }
+
+  img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    transition: transform 1s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}
+
+.video-info {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  overflow: hidden;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  &:hover {
+    height: auto;
+
+    .video-info-ext {
+      transform: rotate(0deg) translate(0, 0) scale(1);
+    }
+  }
+}
+
+.video-info-main {
+  padding: $offset-tiny;
+  background: $white;
+
+  span + mat-icon {
+    margin-left: $offset-middle;
+  }
+
+  * {
+    vertical-align: middle;
+  }
+}
+
+.video-info-ext {
+  padding: $offset-tiny * 2 $offset-tiny $offset-tiny;
+
+  background: transparentize($white, 0.2);
+  transform: rotate(90deg) translate(-165px, -165px) scale(0);
+  transition: transform 0.4s;
+
+  p {
+    margin-top: 0;
+    margin-bottom: $offset-tiny;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  p * {
+    vertical-align: middle;
+  }
+}
+
+.video-title {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $offset-small;
+
+  background: $white;
+  //background: transparentize($white, 0.2);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+

@@ -1,0 +1,24 @@
+<app-header (filterToggle)="drawer.toggle()" showVideoFilter="true"></app-header>
+<mat-drawer-container>
+  <mat-drawer #drawer autoFocus="false" mode="side">
+    <app-slide-filters></app-slide-filters>
+  </mat-drawer>
+  <mat-drawer-content appInfiniteScroll>
+    <ng-container [ngSwitch]="videoStore.loadingStateSubject | async">
+      <div [class.is-excluded]="videoStore.loadingState !== 'success' && videoStore.loadingState !== 'loading'"
+           class="video-state-success">
+        <mat-progress-bar *ngSwitchCase="'loading'" mode="indeterminate"></mat-progress-bar>
+        <app-video-list class="youtube-list"></app-video-list>
+      </div>
+
+      <p *ngSwitchCase="'empty'" class="video-state-info">No videos found.</p>
+
+      <p *ngSwitchCase="'error'" class="video-state-info video-error">
+        <mat-icon>warning</mat-icon>
+        <span>Error loading. Please try again later.</span>
+      </p>
+    </ng-container>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

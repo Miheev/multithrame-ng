@@ -1,0 +1,26 @@
+<app-header></app-header>
+<main class="l-one-pad">
+  <div class="tree-height">
+    <mat-form-field>
+      <input [formControl]="heightFormControl"
+             aria-label="Tree height"
+             matInput
+             placeholder="Enter tree height"
+             type="number">
+      <button (click)="onCleanInput()" aria-label="Close" mat-icon-button matSuffix>
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="heightFormControl.invalid">
+        Please enter a valid positive number
+      </mat-error>
+    </mat-form-field>
+    <button (click)="onTreeChange()"
+            [disabled]="heightFormControl.invalid"
+            aria-label="Rebuild tree"
+            mat-raised-button>Rebuild tree</button>
+
+    <p>Expected number of nodes: {{treeStore.lengthFormatted}}</p>
+  </div>
+
+  <app-tree></app-tree>
+</main>

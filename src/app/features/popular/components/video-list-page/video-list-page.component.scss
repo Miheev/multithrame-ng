@@ -1,0 +1,43 @@
+@import "src/styles/material-theme";
+
+:host {
+  display: block;
+  height: 100%;
+
+  --scroll-offset: 30px;
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.video-state-success {
+  height: 100%;
+}
+.youtube-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  //align-items: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+
+  height: calc(100% + var(--scroll-offset));
+}
+
+.video-state-info {
+  padding: $offset-middle;
+  text-align: center;
+}
+
+.video-error {
+
+  mat-icon {
+    color: mat-color($warn);
+    vertical-align: middle;
+  }
+  span {
+    padding-left: $offset-tiny;
+    vertical-align: middle;
+  }
+}

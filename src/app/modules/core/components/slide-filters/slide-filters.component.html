@@ -1,0 +1,50 @@
+<mat-form-field>
+  <input [formControl]="countryFormControl"
+         [matAutocomplete]="countryAuto"
+         aria-label="Country"
+         matInput
+         placeholder="Select Country"
+         type="text">
+  <button (click)="onCleanInput(countryFormControl)" aria-label="Close" mat-icon-button matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-autocomplete #countryAuto="matAutocomplete"
+                    (optionSelected)="onCountrySelected($event.option.value)"
+                    [displayWith]="displayCountry">
+    <mat-option *ngFor="let county of filteredCountries$ | async" [value]="county.code">
+      {{county.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<mat-form-field>
+  <input [formControl]="categoryFormControl"
+         [matAutocomplete]="categoryAuto"
+         aria-label="Category"
+         matInput
+         placeholder="Select Category"
+         type="text">
+  <button (click)="onCleanInput(categoryFormControl)" aria-label="Close" mat-icon-button matSuffix>
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-autocomplete #categoryAuto="matAutocomplete"
+                    (optionSelected)="onCategorySelected($event.option.value)"
+                    [displayWith]="displayCategory">
+    <mat-option *ngFor="let category of filteredCategories$ | async" [value]="category.id">
+      {{category.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div class="videos-per-page">
+  <div class="label">Videos per page</div>
+  <mat-slider
+    (change)="onVideoCountChange($event.value)"
+    [max]="200"
+    [min]="1"
+    [thumbLabel]="true"
+    [value]="appStore.videoFilterData.videosPerPage"
+    color="primary"
+    thumbLabel
+    tickInterval="1"></mat-slider>
+</div>

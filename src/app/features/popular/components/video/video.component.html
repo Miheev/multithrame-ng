@@ -1,0 +1,30 @@
+<mat-card (click)="onVideoOpen($event)">
+  <img *ngIf="video.thumbnail" [src]="video.thumbnail" alt="">
+<!--  <img alt="" class="ng-star-inserted"-->
+<!--       srcset="https://i.ytimg.com/vi/XQF69A3oGjM/mqdefault.jpg 320w,-->
+<!--              https://i.ytimg.com/vi/1DpH-icPpl0/hqdefault.jpg 480w,-->
+<!--              https://i.ytimg.com/vi/XQF69A3oGjM/sddefault.jpg 640"-->
+<!--       sizes="(max-width: 320px) 320px,-->
+<!--              (min-width: 640px) 640px,-->
+<!--              480px"-->
+<!--      src="https://i.ytimg.com/vi/1DpH-icPpl0/hqdefault.jpg">-->
+  <mat-icon>photo</mat-icon>
+
+  <div class="video-info">
+    <div class="video-info-main">
+      <mat-icon>av_timer</mat-icon>&nbsp;<span>{{ video.publishedAt }}</span>
+      <mat-icon>visibility</mat-icon>&nbsp;<span>{{ video.viewCount }}</span>
+      <mat-icon>thumb_up</mat-icon>&nbsp;<span>{{ video.likeCount }}</span>
+    </div>
+    <div class="video-info-ext">
+      <p><mat-icon matTooltip="Likes ratio to all likes and dislikes">thumbs_up_down</mat-icon>&nbsp;<span>{{ video.likeRate }}%</span></p>
+      <p><mat-icon>comment</mat-icon>&nbsp;<span>{{ video.commentCount }}</span></p>
+      <p><mat-icon matTooltip="Channel title">group</mat-icon>&nbsp;<span>{{ video.channelTitle }}</span></p>
+      <p><mat-icon matTooltip="Tags">cloud</mat-icon>&nbsp;<span>{{ video.tags }}</span></p>
+    </div>
+  </div>
+
+  <div class="video-title">
+    {{ video.title }}
+  </div>
+</mat-card>

@@ -1,0 +1,11 @@
+<div class="node-info">
+  <span>{{ node.value }}</span>
+  <mat-icon (click)="onAddChild()"
+            [color]="color">add_circle</mat-icon>
+  <mat-icon (click)="onDeleteChildren()"
+            *ngIf="children.length"
+            [color]="color">delete</mat-icon>
+</div>
+<div class="node-children">
+  <app-node *ngFor="let child of children" [node]="child"></app-node>
+</div>

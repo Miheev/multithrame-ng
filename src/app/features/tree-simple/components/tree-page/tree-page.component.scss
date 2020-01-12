@@ -1,0 +1,18 @@
+@import 'src/styles/material-theme';
+
+:host {
+  display: block;
+}
+
+header {
+  padding-top: $offset-middle;
+  padding-bottom: $offset-middle;
+}
+main {
+  margin-top: $offset-middle * 2;
+}
+
+.tree-height {
+  text-align: center;
+}
+

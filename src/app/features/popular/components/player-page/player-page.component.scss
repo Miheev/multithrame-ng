@@ -1,0 +1,17 @@
+@import 'src/styles/material-theme';
+
+:host {
+  display: block;
+}
+
+iframe {
+  width: 100%;
+  height: 50vh;
+  min-height: 300px;
+
+  border: none;
+}
+
+.video {
+  margin-top: $offset-middle;
+}

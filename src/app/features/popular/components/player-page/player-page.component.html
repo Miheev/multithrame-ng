@@ -1,0 +1,14 @@
+<app-header></app-header>
+<main>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <button [routerLink]="['/popular']" aria-label="Back" color="primary" mat-raised-button>< Back to Popular</button>
+
+  <div class="video">
+    <iframe (load)='onLoadVideo()' [hidden]="isLoading" [src]="embedUrl"
+            allowfullscreen height="100%" width="100%"></iframe>
+  </div>
+</main>
+
+
+
+

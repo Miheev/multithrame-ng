@@ -1,0 +1,26 @@
+@import "src/styles/material-theme";
+
+:host {
+  display: block;
+  padding: $offset-tiny;
+}
+
+.node-info {
+  text-align: center;
+
+  span {
+    vertical-align: middle;
+  }
+  mat-icon {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
+.node-children {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+

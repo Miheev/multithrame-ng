@@ -1,0 +1,57 @@
+@import 'material-theme';
+@import '~ngx-toastr/toastr';
+
+// Include all theme styles for the components.
+@include angular-material-theme($theme);
+
+// Common
+
+html, body {
+  height: 100%;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+p {
+  margin: $offset-middle 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Layout
+
+.l-one-pad {
+  padding-left: $offset-middle;
+  padding-right: $offset-middle;
+}
+
+// Utils
+
+.is-excluded {
+  display: none !important;
+}
+.is-hidden {
+  visibility: hidden;
+}
+
+// Fixes
+
+#toast-container > div {
+  opacity: 0.95;
+}
+
+.mat-tooltip {
+  font-size: 0.75rem;
+  font-weight: 500;
+  //box-shadow: 0 0 5px;
+  //color: black !important;
+  //background: white;
+}
